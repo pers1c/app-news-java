@@ -1,4 +1,4 @@
-package app.news.demo.user;
+package app.news.demo;
 
 public enum UserRoles {
     USER,

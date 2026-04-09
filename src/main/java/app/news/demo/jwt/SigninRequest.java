@@ -1,10 +1,9 @@
-package app.news.demo;
+package app.news.demo.jwt;
 
 import lombok.Data;
 
 @Data
-public class SingupRequest {
+public class SigninRequest {
     private String username;
-    private String email;
     private String password;
 }

@@ -1,7 +1,7 @@
-package app.news.demo.user;
+package app.news.demo.jwt;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
+import app.news.demo.entity.UserEntity;
+import app.news.demo.UserRoles;
 import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,7 +18,7 @@ public class UserDetailImpl implements UserDetails {
     private boolean isActive;
 
 
-    public static UserDetailImpl build(UserEntity user){
+    public static UserDetailImpl build(UserEntity user) {
         return new UserDetailImpl(
                 user.getId(),
                 user.getUsername(),
