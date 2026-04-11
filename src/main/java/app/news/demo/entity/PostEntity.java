@@ -3,6 +3,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name = "posts")
 @Entity
@@ -26,10 +28,13 @@ public class PostEntity {
     private UserEntity author;
     @Column(name = "category")
     private String category;
+    @OneToMany(mappedBy = "id", fetch = FetchType.LAZY)
+    private List<CommentEntity> comment = new ArrayList<>();
     @Column(name = "createAt")
     private LocalDateTime createAt;
     @Column(name = "updatedAt")
     private LocalDateTime updatedAt;
     @Column(name = "isPinned")
     private boolean isPinned;
+
 }

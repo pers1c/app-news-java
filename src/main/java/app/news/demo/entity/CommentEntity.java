@@ -20,8 +20,8 @@ public class CommentEntity {
     @Column(name = "content")
     private String content;
     @ManyToOne
-    @JoinColumn(name = "authorId")
-    private UserEntity authorId;
+    @JoinColumn(name = "author")
+    private UserEntity author;
     @ManyToOne()
     @JoinColumn(name = "post")
     private PostEntity post;

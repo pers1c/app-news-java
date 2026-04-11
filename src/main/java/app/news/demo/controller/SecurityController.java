@@ -9,6 +9,8 @@ import app.news.demo.repository.UserRepository;
 import app.news.demo.UserRoles;
 import app.news.demo.jwt.JwtCore;
 import app.news.demo.service.RefreshTokenService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +25,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/user")
 public class SecurityController {
     private PasswordEncoder passwordEncoder;
     private UserRepository userRepository;
@@ -31,6 +33,8 @@ public class SecurityController {
     private RefreshTokenRepository refreshTokenRepository;
     private AuthenticationManager authenticationManager;
     private JwtCore jwtCore;
+
+    private static final Logger log = LoggerFactory.getLogger(SecurityController.class);
 
     @Autowired
     public void setRefreshTokenService(RefreshTokenService refreshTokenService) {
@@ -62,7 +66,7 @@ public class SecurityController {
         this.jwtCore = jwtCore;
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/registr")
     public ResponseEntity<?> signup(@RequestBody SingupRequest singupRequest) {
         if (userRepository.existsUserByUsername(singupRequest.getUsername())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Choose different name");
@@ -82,7 +86,7 @@ public class SecurityController {
         return ResponseEntity.ok("Success");
     }
 
-    @PostMapping("/signin")
+    @PostMapping("/login")
     ResponseEntity<?> signing(@RequestBody SigninRequest signinRequest) {
         Authentication authentication;
         try {

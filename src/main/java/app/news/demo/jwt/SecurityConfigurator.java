@@ -54,8 +54,8 @@ public class SecurityConfigurator {
                 .exceptionHandling(exceptions -> exceptions.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                ).authorizeHttpRequests(authorize -> authorize.requestMatchers("/user").fullyAuthenticated()
-                        .requestMatchers("/auth/**").permitAll()
+                ).authorizeHttpRequests(authorize -> authorize.requestMatchers("/user/login", "/user/logout", "/user/registr", "/post/**", "/comment/**").permitAll()
+                        .requestMatchers("/user/**","/post/create", "/comment/create").fullyAuthenticated()
                         .anyRequest().permitAll()
                 )
                 .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
