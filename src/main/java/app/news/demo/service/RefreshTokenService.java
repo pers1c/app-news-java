@@ -1,9 +1,9 @@
 package app.news.demo.service;
 
-import app.news.demo.entity.RefreshToken;
-import app.news.demo.entity.UserEntity;
-import app.news.demo.repository.RefreshTokenRepository;
-import app.news.demo.repository.UserRepository;
+import app.news.demo.common.security.RefreshToken;
+import app.news.demo.user.UserEntity;
+import app.news.demo.common.security.RefreshTokenRepository;
+import app.news.demo.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,8 @@
 package app.news.demo.service;
 
-import app.news.demo.entity.UserEntity;
-import app.news.demo.repository.UserRepository;
-import app.news.demo.jwt.UserDetailImpl;
+import app.news.demo.user.UserEntity;
+import app.news.demo.user.UserRepository;
+import app.news.demo.common.security.UserDetailImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
